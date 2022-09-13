@@ -43,6 +43,7 @@ public class Captura {
 		System.out.println("Digite seu codigo: ");
 		Scanner sc = new Scanner(System.in);
 		int pessoa = sc.nextInt();
+		sc.close();
 
 		while ((frameCapturado = camera.grab()) != null) {
 
@@ -72,7 +73,7 @@ public class Captura {
 				if(tecla != null) {
 					if(tecla.getKeyChar() == 'q') {
 						if(amostra <= numeroAmostras) {
-							imwrite("src\\main\\java\\com\\viniciusribeiro\\facedetector\\fotos\\pessoa." + sc + "."+ amostra + ".jpg", faceCapturada);
+							imwrite("src\\main\\java\\com\\viniciusribeiro\\facedetector\\fotos\\pessoa." + pessoa + "."+ amostra + ".jpg", faceCapturada);
 							System.out.println("foto " + amostra + ".capturada\n");
 							amostra++;
 						}
@@ -93,6 +94,7 @@ public class Captura {
 				break;
 			}
 		}
+		
 		cFrame.dispose();
 		camera.stop();
 	}
